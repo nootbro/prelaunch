@@ -1,0 +1,68 @@
+# Shadow Effect Adjustment Guide for BioIQ Dashboard
+
+This guide explains how to adjust the shadow effect at the bottom of the dashboard to show more or less of the dashboard screen.
+
+## Current Implementation
+
+The shadow effect is implemented in the `hero-section.tsx` file with this CSS code:
+
+```jsx
+<div
+  ref={ref}
+  className="relative mt-[8rem] animate-fade-up opacity-0 [--animation-delay:400ms] [perspective:2000px] after:absolute after:inset-0 after:z-50 after:[background:linear-gradient(to_top,hsl(var(--background))_30%,transparent)]"
+>
+```
+
+The key part is the `after:` pseudo-element with the linear gradient:
+`after:[background:linear-gradient(to_top,hsl(var(--background))_30%,transparent)]`
+
+This creates a gradient that transitions from the background color at 30% opacity at the bottom to fully transparent at the top.
+
+## How to Adjust the Shadow Effect
+
+### To Show More of the Dashboard (Less Shadow):
+
+1. Open the `bioiq-landing-page/components/sections/hero-section.tsx` file
+2. Locate the div with the `after:` pseudo-element (around line 48)
+3. Modify the gradient percentage value:
+   - Change `hsl(var(--background))_30%` to a lower percentage like `hsl(var(--background))_20%` or `hsl(var(--background))_15%`
+   - Lower percentages will make the shadow cover less of the dashboard
+   - Example: `after:[background:linear-gradient(to_top,hsl(var(--background))_15%,transparent)]`
+
+### To Show Less of the Dashboard (More Shadow):
+
+1. Open the same file and locate the same div
+2. Increase the gradient percentage value:
+   - Change `hsl(var(--background))_30%` to a higher percentage like `hsl(var(--background))_50%` or `hsl(var(--background))_60%`
+   - Higher percentages will make the shadow cover more of the dashboard
+   - Example: `after:[background:linear-gradient(to_top,hsl(var(--background))_50%,transparent)]`
+
+### Fine-Tuning the Gradient:
+
+For more precise control, you can add intermediate color stops to the gradient:
+
+```jsx
+after:[background:linear-gradient(to_top,hsl(var(--background))_30%,hsl(var(--background))_15%_50%,transparent_80%)]
+```
+
+This creates a gradient that:
+- Starts at 30% opacity at the bottom
+- Transitions to 15% opacity at the 50% mark of the gradient
+- Becomes fully transparent at the 80% mark
+
+## Additional Adjustments
+
+### Changing the Shadow Height:
+
+If you want to change how far up the shadow extends, you can modify the `after:inset-0` part:
+
+1. Replace `after:inset-0` with specific positioning:
+   - To make the shadow shorter: `after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[20%]`
+   - To make the shadow taller: `after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[40%]`
+
+### Changing the Shadow Color:
+
+If you want to change the shadow color:
+
+1. Replace `hsl(var(--background))` with a specific color:
+   - Example: `after:[background:linear-gradient(to_top,rgba(0,0,0,0.8),transparent)]`
