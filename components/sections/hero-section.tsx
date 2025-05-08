@@ -1,16 +1,16 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/form/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { BorderBeam } from "@/components/effects/border-beam";
 import Particles from "@/components/effects/particles";
 import { WaitlistDialog } from "@/components/waitlist-dialog";
-import { ProgressBar } from "@/components/ui/progress-bar";
-import { CircularProgress } from "@/components/ui/circular-progress";
-import { Sparkline } from "@/components/ui/sparkline";
-import { MetricCard } from "@/components/ui/metric-card";
+import { ProgressBar } from "@/components/ui/data-visualization/progress-bar";
+import { CircularProgress } from "@/components/ui/data-visualization/circular-progress";
+import { Sparkline } from "@/components/ui/data-visualization/sparkline";
+import { MetricCard } from "@/components/ui/data-visualization/metric-card";
 
 export default function HeroSection() {
   const ref = useRef(null);

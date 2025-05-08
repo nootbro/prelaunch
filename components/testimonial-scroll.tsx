@@ -1,6 +1,6 @@
 "use client";
 
-import { Marquee } from "@/components/ui/marquee";
+import { Marquee } from "@/components/layout/marquee";
 import { cn } from "@/lib/utils";
 
 export interface TestimonialCardProps

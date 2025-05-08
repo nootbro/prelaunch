@@ -1,5 +1,5 @@
 import HeroSection from '@/components/sections/hero-section'
-import Particles from '@/components/magicui/particles'
+import Particles from '@/components/effects/particles'
 
 export default function Home() {
   return (

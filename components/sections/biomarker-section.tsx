@@ -6,7 +6,7 @@ import { useInView } from "framer-motion";
 
 export default function BiomarkerSection() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, threshold: 0.2 });
+  const inView = useInView(ref, { once: true, margin: "-100px" });
   
   return (
     <section 
